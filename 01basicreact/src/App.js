@@ -1,6 +1,7 @@
 function App() {
   return (
-    <h1>chair aur react</h1>
+    <h1>chair aur react</h1>,
+    <h2>helloooo</h2>
   );
 }
 
