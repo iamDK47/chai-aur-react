@@ -1,4 +1,4 @@
-function customRender(reactElement,mainContainer){
+function customRender(){
    // const domElement = document.createElement(reactElement.tep)
    // domElement.innerHTML = reactElement.puttar
    // domElement.setAttribute('href' , reactElement.prap.href)
