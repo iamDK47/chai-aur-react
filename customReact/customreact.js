@@ -1,19 +1,17 @@
-function customRender(reactElement,container){
+function customRender(reactElement,mainContainer){
+   // const domElement = document.createElement(reactElement.tep)
+   // domElement.innerHTML = reactElement.puttar
+   // domElement.setAttribute('href' , reactElement.prap.href)
+   // domElement.setAttribute('targ' , reactElement.prap.targ)
+
+   // mainContainer.appendChild(domElement)
+
    const domElement = document.createElement(reactElement.tep)
    domElement.innerHTML = reactElement.puttar
-   domElement.setAttribute('href' , reactElement.prap.href)
-   domElement.setAttribute('targ' , reactElement.prap.targ)
-
-   container.appendChild(domElement)
-
-   // const domeElement = document.createElement(reactElement.tep)
-   // domeElement.innerHTML = reactElement.puttar
-   // for (const prap in reactElement) {
-   //    if (prap === 'puttar') {
-   //       const element = reactElement[prap];
-         
-   //    }
-   // }
+   for (const prop in reactElement.prap) {
+      domElement.setAttribute(prop , reactElement.prap[prop])
+   }
+   mainContainer.appendChild(domElement)
 }
 
 const reactElement = {
