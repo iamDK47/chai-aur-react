@@ -1,4 +1,5 @@
-function customRender(){
+// function customRender(a,s){
+function customRender(mainContainer){
    // const domElement = document.createElement(reactElement.tep)
    // domElement.innerHTML = reactElement.puttar
    // domElement.setAttribute('href' , reactElement.prap.href)
@@ -11,6 +12,7 @@ function customRender(){
    for (const prop in reactElement.prap) {
       domElement.setAttribute(prop , reactElement.prap[prop])
    }
+   // s.appendChild(domElement)
    mainContainer.appendChild(domElement)
 }
 
