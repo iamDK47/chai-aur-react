@@ -11,6 +11,7 @@ function App() {
    <h2>lolzzz</h2>,
    <div className="lol">
     <p>nope</p>
+    <p>haha</p>
    </div>
   )
 }
