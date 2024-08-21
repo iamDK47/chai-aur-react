@@ -14,6 +14,11 @@ function App() {
     <p>haha</p>
     <p>hahaa</p>
     
+   </div>,
+   <div>
+    <h1>
+      NOOOOO
+    </h1>
    </div>
   )
 }
