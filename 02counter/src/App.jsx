@@ -7,19 +7,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   <h1>hello</h1>,
-   <h2>lolzzz</h2>,
-   <div className="lol">
-    <p>nope</p>
-    <p>haha</p>
-    <p>hahaa</p>
-    
-   </div>,
-   <div>
-    <h1>
-      NOOOOO
-    </h1>
-   </div>
+   
   )
 }
 
