@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
@@ -8,6 +8,13 @@ function App() {
   let [specials, setSpecials] = useState(false)
   let [Numbers, setNumbers] = useState(false)
   let [length, setlength] = useState(5)
+
+  let passRef = useRef(null)
+  let copyPassClip = useCallback(()=> {
+    passRef.current.select()
+    passRef.current?.setSelectionRange(0,999)
+    window.navigator.clipboard.writeText(pass);
+  }, [pass])
 
   let passwordGen = useCallback(() => {
     let pass = ""
@@ -37,8 +44,10 @@ useEffect(() => {
           value={pass}
           className='outline-none w-full py-1 px-3'
           placeholder='password' 
-          readOnly/>
+          readOnly
+          ref={passRef}/>
           <button 
+          onClick={copyPassClip}
           className='bg-orange-400 text-white px-3 py-0.5 shrink-0 outline-none'
           > Copy
           </button>
@@ -67,7 +76,7 @@ useEffect(() => {
             <input
             type='checkbox'
             value={Numbers}
-            onChange={() => setNumbers((previousVal) => !previousVal)}
+            onChange={() => setNumbers((prev) => !prev)}
             />
             <label>Numbers</label>
           </div>
