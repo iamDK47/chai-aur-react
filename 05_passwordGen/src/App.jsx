@@ -4,10 +4,10 @@ import viteLogo from '/vite.svg'
 
 
 function App() {
-  let [pass, setPass] = useState(null)
-  let [specials, setSpecials] = useState(null)
-  let [Numbers, setNumbers] = useState(null)
-  let [length, setlength] = useState(8)
+  let [pass, setPass] = useState("")
+  let [specials, setSpecials] = useState(false)
+  let [Numbers, setNumbers] = useState(false)
+  let [length, setlength] = useState(5)
 
   let passwordGen = useCallback(() => {
     let pass = ""
@@ -15,16 +15,17 @@ function App() {
     if (Numbers)  letter += "0123456789"
     if (specials) letter += "`~!@#$%^&*()_+-=[];:',./?><'}{|"
 
-    for (let i = 1; index <= length; index++) {
+    for (let i = 1; i <= length; i++) {
       let random = Math.floor(Math.random() * letter.length + 1)     
       pass += letter.charAt(random)
     }
     setPass(pass)
-  }, [length,Numbers,specials])
+  },[length,specials,Numbers])
+
 
 useEffect(() => {
   passwordGen()
-}, [specials,Numbers,length,passwordGen])
+}, [specials,Numbers,length])
 
   return (
     <>
@@ -35,7 +36,8 @@ useEffect(() => {
           type="text"
           value={pass}
           className='outline-none w-full py-1 px-3'
-          placeholder='password' />
+          placeholder='password' 
+          readOnly/>
           <button 
           className='bg-orange-400 text-white px-3 py-0.5 shrink-0 outline-none'
           > Copy
@@ -46,7 +48,7 @@ useEffect(() => {
             <input
             type='range'
             value={length}
-            mix={8}
+            mix={5}
             max={100}
             className='cursor-pointer'
             onChange={(e) => setlength(e.target.value)}
