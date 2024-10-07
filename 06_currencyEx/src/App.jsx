@@ -1,13 +1,28 @@
 import { useState } from 'react'
 import InputBox from './assets/component/inputBox'
+import useCurrencyInfo from './assets/hook/useCurrency'
 
 
 function App() {
-    let [selectCurrency, setSelectCurrency] = useState()
+    let [convertedAmount, setConvertedAmount] = useState(0)
+    let [amount, setAmount] = useState(0)
+    let [from, setFrom] = useState("usd")
+    let [to, setTo] = useState("pkr")
 
-    let swap = function(){
+    
+    let currencyInfo = useCurrencyInfo(from)
+    
+    let options = Object.keys(currencyInfo)
+    
+    const convert = setConvertedAmount( amount * currencyInfo[to])
 
+    const swap = () => {
+        setFrom(to)
+        setTo(from)
+        setAmount(convertedAmount)
+        setConvertedAmount(amount)
     }
+
 
   return (
       <div
@@ -27,14 +42,16 @@ function App() {
                       <div className="w-full mb-1">
                           <InputBox
                               label="From"
-                              
+                              amount = {amount}
+                              currencyOption = {options}
+                              selectCurrency = {to}
                           />
                       </div>
                       <div className="relative w-full h-0.5">
                           <button
                               type="button"
                               className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
-                              
+                              onClick={swap}
                           >
                               swap
                           </button>
@@ -42,7 +59,8 @@ function App() {
                       <div className="w-full mt-1 mb-4">
                           <InputBox
                               label="To"
-                              
+                              amount={convertedAmount}
+                              currencyOption = {options}                      
                           />
                       </div>
                       <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">

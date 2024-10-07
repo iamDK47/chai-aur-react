@@ -3,7 +3,9 @@ import React from 'react'
 function InputBox ({
     label,
     amount,
-    newAmount,
+    onAmountChange,
+    onCurrencyChange,
+    CurrencyOption = [],
     selectCurrency = 'usd',
 }) {
 
@@ -20,7 +22,8 @@ function InputBox ({
                     type="number"
                     placeholder="Amount"
                     value={amount}
-                    onChange={newAmount}
+                    onChange={(e)=> onAmountChange && onAmountChange(Number(e.target.value))}
+
                     />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">
@@ -28,12 +31,13 @@ function InputBox ({
                 <select
                     className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"                       
                     value={selectCurrency}
-                    onChange={() =>  selectCurrency.map()}
+                    onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                     >
-                    
-                        <option>
-                            usd
+                        {CurrencyOption.map((currency) => (
+                        <option key={currency} value={currency}>
+                            {currency}
                         </option>
+                        ))}
                 
                 </select>
             </div>
