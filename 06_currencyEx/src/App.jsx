@@ -43,8 +43,9 @@ function App() {
                           <InputBox
                               label="From"
                               amount = {amount}
-                              currencyOption = {options}
-                              selectCurrency = {to}
+                              currencyOption = {options}                            
+                              selectCurrency={from}
+                            
                           />
                       </div>
                       <div className="relative w-full h-0.5">
@@ -60,11 +61,12 @@ function App() {
                           <InputBox
                               label="To"
                               amount={convertedAmount}
-                              currencyOption = {options}                      
+                              currencyOption = {options}                             
+                              selectCurrency={from}          
                           />
                       </div>
                       <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                          Convert 
+                          Convert {from.toUpperCase()} to {to.toUpperCase()}
                       </button>
                   </form>
               </div>
