@@ -7,6 +7,7 @@ import './index.css'
 import { createBrowserRouter , createRoutesFromElements, Route, RouterProvider, Routes } from "react-router-dom"
 import About from './assets/components/About.jsx'
 import Layout from './Layout.jsx'
+import Home from './assets/components/Home.jsx'
 
 
 // const router = createBrowserRouter([
@@ -37,6 +38,7 @@ import Layout from './Layout.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path ='/' element={<Layout/>} >
+      <Route path ='' element = {Home}/>
       <Route path ='About' element = {About}/>
     </Route>
 
