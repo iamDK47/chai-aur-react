@@ -8,7 +8,9 @@ import { createBrowserRouter , createRoutesFromElements, Route, RouterProvider, 
 import About from './assets/components/About.jsx'
 import Layout from './Layout.jsx'
 import Home from './assets/components/Home.jsx'
-
+import Contact from './assets/components/Contact.jsx'
+import Github from './assets/components/Github.jsx'
+import {gitHubInfoLoader} from './assets/components/Github.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -38,8 +40,13 @@ import Home from './assets/components/Home.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path ='/' element={<Layout/>} >
-      <Route path ='' element = {Home}/>
-      <Route path ='About' element = {About}/>
+      <Route path ='' element = {<Home />}/>
+      <Route path ='about' element = {<About />}/>
+      <Route path ='Contact' element = {<Contact />}/>
+      <Route 
+      loader={gitHubInfoLoader}
+      path ='git' 
+      element = {<Github />}/>
     </Route>
 
   )
