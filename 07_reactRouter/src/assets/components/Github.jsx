@@ -6,13 +6,12 @@ function Github (){
    const data = useLoaderData()
 
    //     const [data, setData] = useState([])
-   //  useEffect(() => {
-   //   fetch('https://api.github.com/users/hiteshchoudhary')
-   //   .then(response => response.json())
-   //   .then(data => {
-   //      console.log(data);
-   //      setData(data)
-   //   })
+   //     useEffect(() => {
+   //       fetch('https://api.github.com/users/hiteshchoudhary')
+   //       .then(response => response.json())
+   //       .then(data => {
+   //         setData(data)
+   //       })
    //  }, [])
 
    return (
