@@ -13,6 +13,7 @@ function Github (){
    //         setData(data)
    //       })
    //  }, [])
+   // component renders, data is fetched, state is updated which re renders thus falling into the cycle
 
    return (
       <div className='text-center m-4 bg-gray-600 text-white p-4 text-3xl'>
