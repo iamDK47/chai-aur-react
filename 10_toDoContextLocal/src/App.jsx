@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import TodoForm from './components/ToDoForm'
 import TodoItem from './components/ToDoItem'
-import { ContextProvider } from './context/ToDoContext'
+import { TodoProvider } from './context/ToDoContext'
 
 function App() {
   const [todos, setTodos] = useState(0)
@@ -24,7 +24,7 @@ function App() {
    }
 
    useEffect(() => {
-    const todos = JSON.prase(localStorage.getItem("todos"))
+    const todos = JSON.parse(localStorage.getItem("todos"))
    },[])
 
    useEffect(() => {
@@ -43,7 +43,7 @@ function App() {
                     </div>
                     <div className="flex flex-wrap gap-y-3">
                         
-                        {/*Loop and Add TodoItem here */}
+                        < TodoItem /> 
 
                     </div>
                 </div>
