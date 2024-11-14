@@ -4,7 +4,7 @@ import TodoItem from './components/ToDoItem'
 import { TodoProvider } from './context/ToDoContext'
 
 function App() {
-  const [todos, setTodos] = useState(0)
+  const [todos, setTodos] = useState([])
 
    const addTodo = (todo) => {
     setTodos((prev) => [{id: Date.now(), ...todo},...prev] )
@@ -25,6 +25,9 @@ function App() {
 
    useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"))
+    if (todos.length > 0) {
+      setTodos(todos)
+    }
    },[])
 
    useEffect(() => {
@@ -33,23 +36,27 @@ function App() {
 
   return (
     <TodoProvider value = {{todos , updateTodo , deleteTodo , toggleComplete , addTodo}}>
-    <div className="bg-[#172842] min-h-screen py-8">
-                <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
-                    <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
-                    <div className="mb-4">
+      <div className="bg-[#172842] min-h-screen py-8">
+        <div className="w-full max-w-2xl mx-auto shadow-md rounded-lg px-4 py-3 text-white">
+          <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
+            <div className="mb-4">
 
-                        < TodoForm />
+              < TodoForm />
 
-                    </div>
-                    <div className="flex flex-wrap gap-y-3">
-                        
-                        < TodoItem /> 
-
-                    </div>
-                </div>
             </div>
+            <div className="flex flex-wrap gap-y-3">
+                        
+              {todos.map((todo1) => (
+                <div key={todo1.id} className='w-full'>
+                  < TodoItem todoo={todo1}/> 
+                </div>
+              ))}
+            </div>
+        </div>
+      </div>
     </TodoProvider> 
   )
+
 }
 
 export default App
