@@ -6,8 +6,15 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const piyaz = () => {}
+
   return ( 
-    <div>henlo</div>
+    <>
+    <div className='text '> PIYAZ KHAA</div>
+    <button
+    onClick={piyaz}
+    > <a href="https://www.flaticon.com/free-icons/onion" title="onion icons"></a> ARAIN BREATHES</button>
+    </>
   )
 }
 
